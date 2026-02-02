@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Cpu, Zap, GitBranch, BarChart3, Settings, Layers, Activity } from "lucide-react";
 import { PageWrapper } from "@/components/layout/PageWrapper";
-import { HeroCPU } from "@/components/3d/HeroCPU";
+
 
 const navigationCards = [
   {
@@ -53,11 +53,6 @@ const Home = () => {
     <PageWrapper>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* 3D CPU Background */}
-        <div className="absolute inset-0 z-0">
-          <HeroCPU />
-        </div>
-
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
@@ -68,7 +63,7 @@ const Home = () => {
               Performance Scaling on Multi-Core Systems
             </p>
             <p className="text-lg text-muted-foreground/70 mb-8 animate-fade-in delay-200 max-w-2xl mx-auto">
-              An interactive exploration of how modern processors achieve parallelism 
+              An interactive exploration of how modern processors achieve parallelism
               through multithreading, synchronization, and concurrent execution.
             </p>
 

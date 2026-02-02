@@ -27,10 +27,10 @@ const threadPerformanceData = [
 ];
 
 const coreUtilizationData = [
-  { name: "Core 1", value: 85, color: "#00ffff" },
-  { name: "Core 2", value: 78, color: "#a855f7" },
-  { name: "Core 3", value: 92, color: "#3b82f6" },
-  { name: "Core 4", value: 65, color: "#ec4899" },
+  { name: "Core 1", value: 85, color: "#ff7b00ff" },
+  { name: "Core 2", value: 78, color: "#f4f755ff" },
+  { name: "Core 3", value: 92, color: "#da5700ff" },
+  { name: "Core 4", value: 65, color: "#eceee6ff" },
 ];
 
 const serialVsParallelData = [
@@ -127,8 +127,8 @@ const Analytics = () => {
               <AreaChart data={threadPerformanceData}>
                 <defs>
                   <linearGradient id="colorThroughput" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#00ffff" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#00ffff" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#ffe600ff" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#ffd000ff" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#333" />
@@ -142,7 +142,7 @@ const Analytics = () => {
                 <Area
                   type="monotone"
                   dataKey="throughput"
-                  stroke="#00ffff"
+                  stroke="#ffae00ff"
                   fillOpacity={1}
                   fill="url(#colorThroughput)"
                   name="Throughput (ops/s)"
@@ -150,9 +150,9 @@ const Analytics = () => {
                 <Line
                   type="monotone"
                   dataKey="latency"
-                  stroke="#a855f7"
+                  stroke="#e3f301ff"
                   strokeWidth={2}
-                  dot={{ fill: '#a855f7' }}
+                  dot={{ fill: '#b67c00ff' }}
                   name="Latency (ms)"
                 />
               </AreaChart>
@@ -211,8 +211,8 @@ const Analytics = () => {
                 labelStyle={{ color: '#fff' }}
               />
               <Legend />
-              <Bar dataKey="serial" fill="#ef4444" name="Serial (Single Thread)" radius={[0, 4, 4, 0]} />
-              <Bar dataKey="parallel" fill="#00ffff" name="Parallel (4 Threads)" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="serial" fill="#e79600ff" name="Serial (Single Thread)" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="parallel" fill="#fcfcfcff" name="Parallel (4 Threads)" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
@@ -233,21 +233,21 @@ const Analytics = () => {
           <div className="glass-card p-6">
             <h4 className="font-semibold text-primary mb-2">📈 Optimal Thread Count</h4>
             <p className="text-sm text-muted-foreground">
-              Best performance is achieved when thread count matches CPU core count. 
+              Best performance is achieved when thread count matches CPU core count.
               More threads beyond this adds overhead without benefit.
             </p>
           </div>
           <div className="glass-card p-6">
             <h4 className="font-semibold text-secondary mb-2">⚡ Speedup Potential</h4>
             <p className="text-sm text-muted-foreground">
-              I/O-bound tasks (like web scraping) see the highest speedups from parallelization, 
+              I/O-bound tasks (like web scraping) see the highest speedups from parallelization,
               often achieving near-linear scaling.
             </p>
           </div>
           <div className="glass-card p-6">
             <h4 className="font-semibold text-accent mb-2">🎯 Amdahl's Law</h4>
             <p className="text-sm text-muted-foreground">
-              The maximum speedup is limited by the sequential portion of the program. 
+              The maximum speedup is limited by the sequential portion of the program.
               10% sequential code limits speedup to 10x, regardless of cores.
             </p>
           </div>
